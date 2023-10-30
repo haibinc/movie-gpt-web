@@ -4,7 +4,6 @@ import {sendGptRequest} from "./SendGptRequest";
 
 export const SearchBox = () => {
     const [input, setInput] = useState('');
-    const [responseData, setResponseData] = useState('')
 
     const changeText = (event) =>
     {
