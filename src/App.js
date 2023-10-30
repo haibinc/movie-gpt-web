@@ -1,24 +1,15 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {SearchBox} from "./Components/SearchBox.js";
+import {MovieCard} from "./Components/MovieCard.js";
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <h1> MOVIE GPT</h1>
+          <MovieCard> </MovieCard>
+        <SearchBox/>
+      </div>
   );
 }
 
