@@ -1,4 +1,5 @@
 import {sendOMDBData} from './OMDBAPI.js';
+import {MovieCard} from './MovieCard.js';
 
 export const sendGptRequest = async (props) =>
 {
@@ -19,15 +20,8 @@ export const sendGptRequest = async (props) =>
         {
             const response = await res.json();
             const parsed_response = await JSON.parse(response.response);
-            const data = await sendOMDBData(parsed_response.title);
-            fetch(`${baseUrl}/postMovieData`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers:
-                    {
-                    'Content-Type': 'application/json',
-                    },
-            })
+            const omdbData = await sendOMDBData(parsed_response.title);
+            return omdbData;
         }
     }
     catch(error){

@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import {sendGptRequest} from "./SendGptRequest";
 
-export const SearchBox = () => {
+export const SearchBox = (props) => {
     const [input, setInput] = useState('');
 
     const changeText = (event) =>
@@ -14,7 +14,8 @@ export const SearchBox = () => {
     const handleSubmit = async (event) =>
     {
         event.preventDefault();
-        sendGptRequest({input});
+        const data = await sendGptRequest({input});
+        props.setMovie(data);
     }
 
     return(

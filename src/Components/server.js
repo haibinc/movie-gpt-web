@@ -30,15 +30,6 @@ app.post('/requestGpt', async (req, res) => {
     }
 });
 
-app.post('/postMovieData', async (req, res) => {
-    try {
-        res.status(200).send('Sent Data');
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'An error occurred' });
-    }
-});
-
 
 const PORT = Number.parseInt(process.env.PORT) || 4000;
 app.listen(PORT, () => {

@@ -21,6 +21,5 @@ export const sendOMDBData = async (props) => {
     catch(error){
         console.error("Error: ", error);
     }
-
 }
 

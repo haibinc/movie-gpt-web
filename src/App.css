@@ -3,4 +3,9 @@
   align-content: center;
 }
 
-
+.Card{
+  border-radius:12px;
+  width:13rem;
+  height:17rem;
+  margin-bottom: 2rem;
+}

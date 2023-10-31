@@ -1,8 +1,10 @@
 
-export const MovieCard = ({sliders}) => {
+export const MovieCard = (props) =>
+{
+    console.log(props.movie.Title);
     return (
         <div>
-            {/*<img src={responseData} alt="Movie Poster"/>*/}
+            <img src={props.movie.Poster} className="Card"/>
         </div>
     );
 }
