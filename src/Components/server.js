@@ -20,10 +20,12 @@ app.post('/requestGpt', async (req, res) => {
     try {
         const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
-            messages: [{"role": "system", "content": "You are a movie database. I want you to only respond to movie requests and provide answers in a JSON format. Only give a movie's title, like {title: movie_name} nothing else."},
-                {"role": "user", "content": `Give me a movie like ${req.body}`}],
+            messages: [
+                {"role": "system", "content": "You are a movie database. I want you to only respond to movie requests."},
+                {"role": "user", "content": `Give me 3 movies similar to ${req.body}. I just want the movie titles not year or dates.`},
+            ],
         });
-        res.json({ response: response.choices[0].message.content });
+        res.status(200).json(response.choices[0].message.content);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'An error occurred' });

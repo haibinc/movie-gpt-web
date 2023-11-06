@@ -1,5 +1,5 @@
 import {sendOMDBData} from './OMDBAPI.js';
-import {MovieCard} from './MovieCard.js';
+import {movieParser} from "./MovieParser.js";
 
 export const sendGptRequest = async (props) =>
 {
@@ -19,9 +19,14 @@ export const sendGptRequest = async (props) =>
         else
         {
             const response = await res.json();
-            const parsed_response = await JSON.parse(response.response);
-            const omdbData = await sendOMDBData(parsed_response.title);
-            return omdbData;
+            const parsed_response = movieParser(response);
+            // console.log(parsed_response);
+            const omdbDataArray = await Promise.all(parsed_response.map((movie_name) => {
+                return sendOMDBData(movie_name);
+            }))
+            console.log(omdbDataArray);
+            return omdbDataArray;
+
         }
     }
     catch(error){
