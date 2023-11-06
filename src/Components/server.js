@@ -5,7 +5,11 @@ const bodyParser = require('body-parser');
 const cors = require("cors");
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+    origin: "*"
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.text());
@@ -16,7 +20,8 @@ const openai = new Openai({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY
 });
 
-app.post('/requestGpt', async (req, res) => {
+app.post('/requestGpt', cors(), async (req, res) => {
+    console.log("here");
     try {
         const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",

@@ -6,11 +6,13 @@ export const sendGptRequest = async (props) =>
     const baseUrl = 'https://moviegpt-a3c827963e7a.herokuapp.com';
     try{
         const res = await fetch(`${baseUrl}/requestGpt`, {
+
             method: 'POST',
-            mode: "no-cors",
+            mode: "cors",
             body: props.input,
             headers: {
                 'Content-Type': 'text/plain',
+
             },
         })
         if (!res.ok) {
