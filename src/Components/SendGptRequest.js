@@ -7,7 +7,7 @@ export const sendGptRequest = async (props) =>
     try{
         const res = await fetch(`${baseUrl}/requestGpt`, {
             method: 'POST',
-            mode: "cors",
+            mode: "no-cors",
             body: props.input,
             headers: {
                 'Content-Type': 'text/plain',
