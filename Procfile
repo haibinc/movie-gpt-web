@@ -1,0 +1,1 @@
+web: cd src/Components && node server.js

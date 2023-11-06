@@ -3,7 +3,7 @@ import {movieParser} from "./MovieParser.js";
 
 export const sendGptRequest = async (props) =>
 {
-    const baseUrl = 'http://localhost:4000';
+    const baseUrl = 'https://moviegpt-a3c827963e7a.herokuapp.com';
     try{
         const res = await fetch(`${baseUrl}/requestGpt`, {
             method: 'POST',
