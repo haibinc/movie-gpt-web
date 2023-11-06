@@ -20,7 +20,7 @@ const openai = new Openai({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY
 });
 
-app.post('/requestGpt', cors(), async (req, res) => {
+app.post('/requestGpt', cors(corsOptions), async (req, res) => {
     console.log("here");
     try {
         const response = await openai.chat.completions.create({
