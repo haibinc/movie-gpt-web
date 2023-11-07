@@ -20,6 +20,10 @@ const openai = new Openai({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY
 });
 
+app.get('/', (req,res) => {
+    res.send('sup');
+})
+
 app.post('/requestGpt', cors(corsOptions), async (req, res) => {
     console.log("here");
     try {
