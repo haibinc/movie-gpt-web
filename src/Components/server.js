@@ -38,7 +38,7 @@ app.post('/requestGpt', cors(corsOptions), async (req, res) => {
 });
 
 
-const PORT = Number.parseInt(process.env.PORT) || 4000;
+const PORT = Number.parseInt(process.env.PORT) || 4200;
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
 });
