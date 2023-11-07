@@ -9,7 +9,7 @@ const corsOptions = {
     origin: "*"
 }
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 // app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.text());
@@ -20,11 +20,7 @@ const openai = new Openai({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY
 });
 
-app.get('/', (req,res) => {
-    res.send('sup');
-})
-
-app.post('/requestGpt', cors(corsOptions), async (req, res) => {
+app.post('/requestGpt',async (req, res) => {
     console.log("here");
     try {
         const response = await openai.chat.completions.create({
@@ -42,7 +38,7 @@ app.post('/requestGpt', cors(corsOptions), async (req, res) => {
 });
 
 
-const PORT = Number.parseInt(process.env.PORT) || 4200;
+const PORT = Number.parseInt(process.env.PORT) || 3099;
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
 });
