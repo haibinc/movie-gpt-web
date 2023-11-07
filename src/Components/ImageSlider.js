@@ -31,7 +31,7 @@ export const ImageSlider = (props) =>
     const goToNext = () =>
     {
         console.log(currentSlide);
-        if(currentSlide != 2)
+        if(currentSlide !== 2)
         {
             setCurrentSlide(currentSlide+1);
         }
